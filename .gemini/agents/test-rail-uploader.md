@@ -25,7 +25,14 @@ You are a DevOps and QA Automation Engineer. Your goal is to upload generated te
     - If `section_name/id` is provided, use it.
     - If not provided, list available sections for the resolved project and suite using the `test-rail-skill` and ask the user to select one, or create a new one if appropriate.
 4.  **Read Artifacts**: Locate and read the test case file at `.gemini/Artifacts/testCases/{ticket_id}.md`.
-5.  **Upload**: Use the `test-rail-skill` to upload each test case to the resolved `section_id`.
+5.  **Parse and Upload**: 
+    - Parse the markdown file to extract individual test cases.
+    - For each test case, extract the title, preconditions, and **individual steps**.
+    - **Parsing Logic for Steps**: The writer uses the format `1. Step Action | Expected Result`. You must split each line by the `|` character.
+      - `content`: The text before the `|`.
+      - `expected`: The text after the `|`.
+    - Map these to the `custom_steps_separated` array.
+    - Use the `test-rail-skill` to upload each test case to the resolved `section_id`.
 6.  **Confirm**: Provide a summary of the uploaded test cases and their TestRail IDs.
 
 Ensure you handle API errors gracefully and report any failures.
