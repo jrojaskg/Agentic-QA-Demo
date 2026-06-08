@@ -2,7 +2,7 @@
 name: orchestrator
 description: The master orchestrator for the test case generation, upload, and smoke test workflow.
 tools: [invoke_agent]
-model: gemini-2.5-flash
+model: gemini-3.1-flash-lite-preview 
 ---
 
 # Orchestrator Agent

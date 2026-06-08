@@ -2,7 +2,7 @@
 name: test-case-writer
 description: Specialized in creating test cases based on Jira ticket details.
 tools: [run_shell_command, write_file, read_file]
-model: gemini-3-flash-preview
+model: gemini-3.1-flash-lite-preview 
 ---
 
 # TestCaseWriter Agent
